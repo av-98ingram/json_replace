@@ -1,0 +1,16 @@
+{
+  "name": "json_replace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node_modules\\.bin\\webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "Felipe Almeida <p.almeida.felipe@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0"
+  }
+}
