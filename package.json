@@ -10,11 +10,28 @@
   "keywords": [],
   "author": "Felipe Almeida <p.almeida.felipe@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-typescript": "^7.0.0",
+    "@types/jest": "^23.3.2",
     "babel-loader": "^8.0.2",
     "jest": "^23.6.0",
+    "ts-jest": "^23.1.4",
+    "typescript": "^3.0.3",
     "webpack": "^4.18.0",
     "webpack-cli": "^3.1.0"
   }
