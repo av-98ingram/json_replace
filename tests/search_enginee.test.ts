@@ -1,23 +1,24 @@
 import SearchEnginee from '../src/search-enginee';
 
-test('test: get value from JSON', () => {
+test('test: get value from JSON', done => {
   const searchEnginee: SearchEnginee = new SearchEnginee()
   const json: Object = { a: 'value a', b: 'value b' }
-  const func: Object = value => value + 'x'
+  const func: Object = value => {
+    expect(value).toEqual('value b');
+    done();
+  }
 
-  searchEnginee.replaceValue(json, 'b', func)
-
-  expect(json).toEqual({ a: 'value a', b: 'value bx' });
+  searchEnginee.getValue(json, 'b', func)
 })
 
-test('test: get value from a key with child', () => {
+test('test: get value from a key with child', done => {
   const searchEnginee: SearchEnginee = new SearchEnginee()
   const child: Object = { a: 10 }
   const json: Object = { a: child, b: 'value b' }
-  const func: Object = value => value + 5
-  const expectedValue ={ a: {a : 15 }, b: 'value b' }
+  const func: Object = value => {
+    expect(value).toEqual(10);
+    done();
+  }
 
-  searchEnginee.replaceValue(json, 'a.a', func)
-
-  expect(json).toEqual(expectedValue)
+  searchEnginee.getValue(json, 'a.a', func)
 })

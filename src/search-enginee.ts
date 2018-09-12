@@ -1,5 +1,5 @@
 export default class SearchEnginee {
-  replaceValue(json: Object, field: string, callback: any): any {
+  getValue(json: Object, field: string, callback: any): any {
     const filterFieldStr: any = (element, index, arr) => index != 0
     const arrFields: Array<string> = field.split('.')
 
@@ -9,9 +9,9 @@ export default class SearchEnginee {
         .filter(filterFieldStr)
         .join('.')
 
-      this.replaceValue(json[newField], newJson, callback)
+      this.getValue(json[newField], newJson, callback)
     } else {
-      json[field] = callback(json[field])
+      callback(json[field])
     }
   }
 }
