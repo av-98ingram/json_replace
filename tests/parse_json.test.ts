@@ -14,29 +14,6 @@ test('function can`t return a empty', () => {
     .not.toEqual(['field1', 'field2', ''])
 })
 
-test('test: get value from JSON', done => {
-  const jsonReplace: JsonReplace = new JsonReplace()
-  const json: Object = { a: 'value a', b: 'value b' }
-  const func: Object = value => {
-    expect(value).toEqual('value b');
-    done();
-  }
-
-  jsonReplace.searchValue(json, 'b', func)
-})
-
-test('test: get value from a key with child', done => {
-  const jsonReplace: JsonReplace = new JsonReplace()
-  const child: Object = { a: 10 }
-  const json: Object = { a: child, b: 'value b' }
-  const func: Object = value => {
-    expect(value).toEqual(10);
-    done();
-  }
-
-  jsonReplace.searchValue(json, 'a.a', func)
-})
-
 // test('test: replace values', done => {
 //   const jsonReplace: JsonReplace = new JsonReplace()
 //   const child: Object = { a: 10 }
